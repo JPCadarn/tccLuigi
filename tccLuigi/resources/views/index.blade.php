@@ -7,7 +7,7 @@
 			<li class="active">
 				<div class="collapsible-header"><i class="material-icons">filter_drama</i>Contas a Pagar</div>
 				<div class="collapsible-body">
-					<table>
+					<table id="tablePagamentos">
 						<thead>
 							<tr>
 								<th>ID</th>
@@ -20,20 +20,16 @@
 						</thead>
 
 						<tbody>
-							@if(!empty($pagamentos))
-								@foreach($pagamentos as $pagamento)
-									<tr>
-										<td>{{$pagamento['id']}}</td>
-										<td>{{$pagamento['pago_a']}}</td>
-										<td>{{$pagamento['data_vencimento']}}</td>
-										<td>{{$pagamento['data_pagamento']}}</td>
-										<td>{{$pagamento['modo_pagamento']}}</td>
-										<td>{{$pagamento['valor']}}</td>
-									</tr>
-								@endforeach
-							@else
-								Nenhum registro cadastrado.
-							@endif
+							@foreach($pagamentos as $pagamento)
+								<tr>
+									<td>{{$pagamento['id']}}</td>
+									<td>{{$pagamento['pago_a']}}</td>
+									<td>{{$pagamento['data_vencimento']}}</td>
+									<td>{{$pagamento['data_pagamento']}}</td>
+									<td>{{$pagamento['modo_pagamento']}}</td>
+									<td>{{$pagamento['valor']}}</td>
+								</tr>
+							@endforeach
 						</tbody>
 					</table>
 				</div>
@@ -44,7 +40,7 @@
 			<li class="active">
 				<div class="collapsible-header"><i class="material-icons">filter_drama</i>Contas a Receber</div>
 				<div class="collapsible-body">
-					<table>
+					<table id="tableRecebimentos">
 						<thead>
 						<tr>
 							<th>ID</th>
@@ -57,7 +53,6 @@
 						</thead>
 
 						<tbody>
-						@if(!empty($recebimentos))
 							@foreach($recebimentos as $recebimento)
 								<tr>
 									<td>{{$recebimento['id']}}</td>
@@ -68,9 +63,6 @@
 									<td>{{$recebimento['valor']}}</td>
 								</tr>
 							@endforeach
-						@else
-							Nenhum registro cadastrado.
-						@endif
 						</tbody>
 					</table>
 				</div>
