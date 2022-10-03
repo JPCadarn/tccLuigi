@@ -2,9 +2,7 @@
 
 @section('title', 'Login')
 
-@section('footer')
-
-@endsection
+@section('fab')@endsection
 
 @section('content')
 	<div class="row col s12 row-login">

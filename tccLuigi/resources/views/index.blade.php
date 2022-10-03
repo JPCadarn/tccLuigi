@@ -76,11 +76,4 @@
 				</div>
 			</li>
 		</ul>
-	@else
-
-
-	{{$pagamentos}}
-	<br>
-	<br>
-	{{$recebimentos}}
 @endsection

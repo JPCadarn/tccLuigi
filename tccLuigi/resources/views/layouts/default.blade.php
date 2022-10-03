@@ -19,19 +19,17 @@
 		</div>
 	</main>
 
-	@section('footer')
-		<footer class="page-footer">
-			<div class="container">
-				<div class="row">
-					<div class="col s6">
-						<a class="waves-effect waves-light btn full-width"><i class="material-icons left">cloud</i>Inserção de Contas</a>
-					</div>
-					<div class="col s6">
-						<a class="waves-effect waves-light btn full-width"><i class="material-icons left">cloud</i>Precificação</a>
-					</div>
-				</div>
-			</div>
-		</footer>
+	@section('fab')
+		<div class="fixed-action-btn">
+			<a class="btn-floating btn-large red">
+				<i class="large material-icons">add</i>
+			</a>
+			<ul>
+				<li><a class="btn-floating red"><i class="material-icons">trending_down</i>Inserir Pagamentos</a></li>
+				<li><a class="btn-floating red"><i class="material-icons">trending_up</i>Inserir Recebimentos</a></li>
+				<li><a class="btn-floating yellow darken-1"><i class="material-icons">attach_money</i>Precificação</a></li>
+			</ul>
+		</div>
 	@show
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js" integrity="sha512-aVKKRRi/Q/YV+4mjoKBsE4x3H+BkegoM/em46NNlCqNTmUYADjBbeNefNxYV7giUp0VxICtqdrbqU7iVaeZNXA==" crossorigin="anonymous" referrerpolicy="no-referrer"></script>
