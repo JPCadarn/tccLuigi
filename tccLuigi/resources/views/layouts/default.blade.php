@@ -38,5 +38,6 @@
 <script src="//cdn.datatables.net/1.12.1/js/jquery.dataTables.min.js"></script>
 <script src="{{asset('js/scripts.js')}}"></script>
 <script src="{{asset('js/components.js')}}"></script>
+<script src="{{asset('js/dataTables.js')}}"></script>
 </body>
 </html>
