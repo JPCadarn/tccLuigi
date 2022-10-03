@@ -20,7 +20,7 @@ return new class extends Migration
 			$table->double('valor');
 			$table->date('data_vencimento');
 			$table->date('data_recebimento')->nullable();
-			$table->string('modo_pagamento', 30)->nullable();
+			$table->string('modo_recebimento', 30)->nullable();
             $table->timestamps();
         });
     }
