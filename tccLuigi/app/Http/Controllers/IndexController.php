@@ -10,6 +10,6 @@ class IndexController extends Controller
 {
 	public function index(Pagamento $pagamento, Recebimento $recebimento)
 	{
-		return view('index', ['pagamentos' => $pagamento::all()->paginate(10), 'recebimentos' => $recebimento::all()->paginate(10)]);
+		return view('index', ['pagamentos' => $pagamento::all(), 'recebimentos' => $recebimento::all()]);
 	}
 }
