@@ -1,0 +1,10 @@
+{
+    "require": {
+        "skydiver/laravel-materialize-css": "^1.0"
+    },
+    "config": {
+        "allow-plugins": {
+            "kylekatarnls/update-helper": true
+        }
+    }
+}
