@@ -23,7 +23,7 @@ class RecebimentoFactory extends Factory
 			'valor' => $this->faker->randomFloat(),
 			'data_vencimento' => $this->faker->dateTime(),
 			'data_recebimento' => $this->faker->dateTime(),
-			'modo_pagamento' => 'pix'
+			'modo_recebimento' => 'pix'
         ];
     }
 }

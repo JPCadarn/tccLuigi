@@ -5,26 +5,32 @@
 @section('fab')@endsection
 
 @section('content')
-	<div class="row col s12 row-login">
-		<h3 class="header center">Bem-vindo</h3>
+	<div class="col s12 row-login">
+		<h2 class="header center">Bem Vindo</h2>
 		<div class="card horizontal">
 			<div class="card-stacked">
-				<form>
+				<form action="{{route('login.make')}}" method="POST">
+					@csrf
 					<div class="card-content">
-						<div class="input-field col s12">
-							<input id="last_name" type="text" required>
-							<label for="last_name">Login</label>
+						<div class='row'>
+							<div class="input-field col s12">
+								<input id="login" name="login" type="text" required autocomplete="off">
+								<label for="login">Login</label>
+							</div>
 						</div>
-						<div class="input-field col s12">
-							<input id="last_name" type="password" required>
-							<label for="last_name">Senha</label>
+						<div class='row'>
+							<div class="input-field col s12">
+								<input id="senha" name="senha" type="password" required autocomplete="off">
+								<label for="senha">Senha</label>
+							</div>
 						</div>
 					</div>
 					<div class="card-action">
-						<button class="btn waves-effect waves-light right" type="submit" name="action">
-							<i class="material-icons right">send</i>
-							Submit
-						</button>
+						<div class='row'>
+							<button type='submit' name='btn_login' class='indigo darken-4 col s12 btn btn-large waves-effect'>
+								Fazer Login <i class="material-icons right">send</i>
+							</button>
+						</div>
 					</div>
 				</form>
 			</div>

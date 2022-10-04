@@ -6,7 +6,7 @@ $(document).ready(function () {
 		language: {
 			emptyTable: 'Nenhum registro cadastrado.'
 		}
-	});
+	}).page.len(10).draw();
 	$('#tableRecebimentos').DataTable({
 		colReorder: true,
 		bFilter: false,
@@ -14,5 +14,5 @@ $(document).ready(function () {
 		language: {
 			emptyTable: 'Nenhum registro cadastrado.'
 		}
-	});
+	}).page.len(10).draw();
 });
