@@ -18,6 +18,7 @@
                                 <th>Data de Pagamento</th>
                                 <th>Modo de Pagamento</th>
                                 <th>Valor</th>
+                                <th>Ações</th>
                             </tr>
                             </thead>
 
@@ -26,10 +27,14 @@
                                 <tr>
                                     <td>{{$pagamento['id']}}</td>
                                     <td>{{$pagamento['pago_a']}}</td>
-                                    <td>{{$pagamento['data_vencimento']}}</td>
-                                    <td>{{$pagamento['data_pagamento']}}</td>
+                                    <td>{{date('d/m/Y', strtotime($pagamento['data_vencimento']))}}</td>
+                                    <td>{{date('d/m/Y', strtotime($pagamento['data_pagamento']))}}</td>
                                     <td>{{$pagamento['modo_pagamento']}}</td>
-                                    <td>{{$pagamento['valor']}}</td>
+                                    <td>{{number_format($pagamento['valor'], 2, ',', '.')}}</td>
+                                    <td>
+                                        <a class="waves-effect tooltipped btnEditPagamento" data-tooltip="Editar" data-position="bottom" data-action="{{route('pagamentos.get', $pagamento['id'])}}"><i class="material-icons yellow-text text-darken-3">edit</i></a>
+                                        <a class="waves-effect tooltipped btnDelete" data-tooltip="Excluir" data-position="bottom" data-action="{{route('pagamentos.delete', $pagamento['id'])}}"><i class="material-icons yellow-text text-darken-3">delete</i></a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -52,6 +57,7 @@
                                 <th>Data Recebimento</th>
                                 <th>Modo Rec.</th>
                                 <th>Valor</th>
+                                <th>Ações</th>
                             </tr>
                             </thead>
 
@@ -62,8 +68,12 @@
                                     <td>{{$recebimento['paciente']}}</td>
                                     <td>{{$recebimento['data_vencimento']}}</td>
                                     <td>{{$recebimento['data_recebimento']}}</td>
-                                    <td>{{$recebimento['modo_recebiment']}}</td>
+                                    <td>{{$recebimento['modo_recebimento']}}</td>
                                     <td>{{$recebimento['valor']}}</td>
+                                    <td>
+                                        <a class="waves-effect tooltipped btnEditRecebimento" data-tooltip="Editar" data-position="bottom" data-action="{{route('recebimentos.get', $recebimento['id'])}}"><i class="material-icons yellow-text text-darken-3">edit</i></a>
+                                        <a class="waves-effect tooltipped btnDelete" data-tooltip="Excluir" data-position="bottom" data-action="{{route('recebimentos.delete', $recebimento['id'])}}"><i class="material-icons yellow-text text-darken-3">delete</i></a>
+                                    </td>
                                 </tr>
                             @endforeach
                             </tbody>
@@ -73,5 +83,19 @@
             </ul>
         </div>
     </div>
+
+    <script>
+        $('.btnDelete').on('click', function (event) {
+            let token = '@csrf';
+            token = token.substr(42, 40);
+            $.ajax({
+                type: "POST",
+                url: event.currentTarget.dataset.action,
+                data: `_token=${token}`
+            }).done(function (response) {
+                window.location = response;
+            });
+        });
+    </script>
 
 @endsection

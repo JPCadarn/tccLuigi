@@ -3,7 +3,7 @@
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PagamentoController;
 use App\Http\Controllers\RecebimentoController;
-use App\Http\Controllers\UsuarioController;
+use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -17,13 +17,17 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/', [IndexController::class, 'index'])->middleware('auth');
+Route::get('/', [IndexController::class, 'index'])->name('index')->middleware('auth');
 
 Route::get('/login', function () {
     return view('login');
-})->name('login.form');
-Route::post('/login', [UsuarioController::class, 'customLogin'])->name('login.make');
+})->name('login');
+Route::post('/login', [LoginController::class, 'customLogin'])->name('login.make');
 
-Route::post('/pagamentos/insert', [PagamentoController::class, 'insert'])->name('pagamentos.insert')->middleware('auth');
+Route::post('/pagamentos/delete/{id}', [PagamentoController::class, 'delete'])->name('pagamentos.delete')->middleware('auth');
+Route::post('/pagamentos/save', [PagamentoController::class, 'save'])->name('pagamentos.save')->middleware('auth');
+Route::get('/pagamentos/{id}', [PagamentoController::class, 'get'])->name('pagamentos.get')->middleware('auth');
 
-Route::post('/recebimentos/insert', [RecebimentoController::class, 'insert'])->name('recebimentos.insert')->middleware('auth');
+Route::post('/recebimentos/delete/{id}', [RecebimentoController::class, 'delete'])->name('recebimentos.delete')->middleware('auth');
+Route::post('/recebimentos/save', [RecebimentoController::class, 'save'])->name('recebimentos.save')->middleware('auth');
+Route::get('/recebimentos/{id}', [RecebimentoController::class, 'get'])->name('recebimentos.get')->middleware('auth');

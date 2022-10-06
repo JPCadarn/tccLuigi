@@ -6,7 +6,7 @@ use App\Models\Usuario;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 
-class UsuarioController extends Controller
+class LoginController extends Controller
 {
     public function customLogin(Request $request)
     {
@@ -17,8 +17,7 @@ class UsuarioController extends Controller
 
         $credentials = $request->only('email', 'password');
         if (Auth::attempt($credentials)) {
-            return redirect()->intended('')
-                ->withSuccess('Signed in');
+            return redirect()->intended('');
         }
 
         return redirect("login")->withSuccess('Login details are not valid');
