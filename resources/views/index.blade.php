@@ -14,9 +14,9 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Pago a</th>
-                                <th>Data Vencimento</th>
-                                <th>Data Pagamento</th>
-                                <th>Modo Pag.</th>
+                                <th>Data de Vencimento</th>
+                                <th>Data de Pagamento</th>
+                                <th>Modo de Pagamento</th>
                                 <th>Valor</th>
                             </tr>
                             </thead>
