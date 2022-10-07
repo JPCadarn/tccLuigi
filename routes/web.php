@@ -1,8 +1,8 @@
 <?php
 
 use App\Http\Controllers\IndexController;
-use App\Http\Controllers\PagamentoController;
-use App\Http\Controllers\RecebimentoController;
+use App\Http\Controllers\PagamentosController;
+use App\Http\Controllers\RecebimentosController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
 
@@ -24,10 +24,10 @@ Route::get('/login', function () {
 })->name('login');
 Route::post('/login', [LoginController::class, 'customLogin'])->name('login.make');
 
-Route::post('/pagamentos/delete/{id}', [PagamentoController::class, 'delete'])->name('pagamentos.delete')->middleware('auth');
-Route::post('/pagamentos/save', [PagamentoController::class, 'save'])->name('pagamentos.save')->middleware('auth');
-Route::get('/pagamentos/{id}', [PagamentoController::class, 'get'])->name('pagamentos.get')->middleware('auth');
+Route::post('/pagamentos/delete/{id}', [PagamentosController::class, 'delete'])->name('pagamentos.delete')->middleware('auth');
+Route::post('/pagamentos/save', [PagamentosController::class, 'save'])->name('pagamentos.save')->middleware('auth');
+Route::get('/pagamentos/{id}', [PagamentosController::class, 'get'])->name('pagamentos.get')->middleware('auth');
 
-Route::post('/recebimentos/delete/{id}', [RecebimentoController::class, 'delete'])->name('recebimentos.delete')->middleware('auth');
-Route::post('/recebimentos/save', [RecebimentoController::class, 'save'])->name('recebimentos.save')->middleware('auth');
-Route::get('/recebimentos/{id}', [RecebimentoController::class, 'get'])->name('recebimentos.get')->middleware('auth');
+Route::post('/recebimentos/delete/{id}', [RecebimentosController::class, 'delete'])->name('recebimentos.delete')->middleware('auth');
+Route::post('/recebimentos/save', [RecebimentosController::class, 'save'])->name('recebimentos.save')->middleware('auth');
+Route::get('/recebimentos/{id}', [RecebimentosController::class, 'get'])->name('recebimentos.get')->middleware('auth');

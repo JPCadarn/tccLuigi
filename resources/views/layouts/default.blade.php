@@ -31,7 +31,7 @@
         </a>
         <ul>
             <li><a class="btn-floating red tooltipped modal-trigger" data-target="modalPagamento" data-position="left" data-tooltip="Inserir Pagamentos"><i class="material-icons">trending_down</i>Inserir Pagamentos</a></li>
-            <li><a class="btn-floating red tooltipped modal-trigger" data-target="modalRecebimentos" data-position="left" data-tooltip="Inserir Recebimentos"><i class="material-icons">trending_up</i>Inserir Recebimentos</a></li>
+            <li><a class="btn-floating red tooltipped modal-trigger" data-target="modalRecebimento" data-position="left" data-tooltip="Inserir Recebimentos"><i class="material-icons">trending_up</i>Inserir Recebimentos</a></li>
             <li><a class="btn-floating yellow tooltipped modal-trigger" data-target="modalPrecificacao" data-position="left" data-tooltip="Precificação"><i class="material-icons">attach_money</i>Precificação</a></li>
         </ul>
     </div>
@@ -39,7 +39,7 @@
 
 <div id="modalPagamento" class="modal">
     @csrf
-    <form action="{{route('pagamentos.save')}}" method="POST">
+    <form action="{{route('pagamentos.save')}}" method="POST" enctype="multipart/form-data">
         @csrf
         <div class="modal-content">
             <h5 class="center">Contas a Pagar</h5>
@@ -56,7 +56,7 @@
             <div class="file-field input-field" id="fileInputPagamentos">
                 <div class="btn">
                     <span>Arquivo</span>
-                    <input type="file">
+                    <input type="file" name="planilha">
                 </div>
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text">
@@ -111,7 +111,7 @@
                 <div class="file-field input-field" id="fileInputRecebimentos">
                     <div class="btn">
                         <span>Arquivo</span>
-                        <input type="file">
+                        <input type="file" name="planilhaRecebimento">
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">
