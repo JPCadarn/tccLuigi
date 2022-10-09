@@ -65,11 +65,11 @@
             <div class="row" id="divPagamentoManual">
                 <input type="hidden" name="id" id="id">
                 <div class="input-field col s12">
-                    <input id="pago_a" name="pago_a" type="text" data-length="50">
+                    <input id="pago_a" name="pago_a" type="text" data-length="50" required>
                     <label for="pago_a">Pago A</label>
                 </div>
                 <div class="input-field col s6">
-                    <input class="maskMoney" id="valor" name="valor" type="text">
+                    <input class="maskMoney" id="valor" name="valor" type="text" required>
                     <label for="valor">Valor</label>
                 </div>
                 <div class="input-field col s6">
@@ -77,12 +77,20 @@
                     <label for="modo_pagamento">Modo de Pagamento</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="date" name="data_vencimento" id="data_vencimento">
+                    <input type="date" name="data_vencimento" id="data_vencimento" required>
                     <label for="data_vencimento">Data de Vencimento</label>
                 </div>
                 <div class="input-field col s6">
                     <input type="date" name="data_pagamento" id="data_pagamento">
                     <label for="data_pagamento">Data de Pagamento</label>
+                </div>
+                <div class="input-field col s12">
+                    <select id="tipoCusto" name="tipo_custo" required>
+                        <option value="" disabled selected>Tipo de Custo</option>
+                        <option value="F">Fixo</option>
+                        <option value="V">Variável</option>
+                    </select>
+                    <label for="tipoCusto">Tipo de Custo</label>
                 </div>
             </div>
         </div>
@@ -121,15 +129,15 @@
             <div class="row" id="divRecebimentoManual">
                 <input type="hidden" id="idRecebimento" name="id">
                 <div class="input-field col s12">
-                    <input id="descricao" name="descricao" type="text" data-length="50">
+                    <input id="descricao" name="descricao" type="text" data-length="50" required>
                     <label for="descricao">Descrição</label>
                 </div>
                 <div class="input-field col s12">
-                    <input id="paciente" name="paciente" type="text" data-length="50">
+                    <input id="paciente" name="paciente" type="text" data-length="50 required">
                     <label for="paciente">Paciente</label>
                 </div>
                 <div class="input-field col s6">
-                    <input class="maskMoney" id="valor_recebimento" name="valor" type="text">
+                    <input class="maskMoney" id="valor_recebimento" name="valor" type="text" required>
                     <label for="valor_recebimento">Valor</label>
                 </div>
                 <div class="input-field col s6">
@@ -137,7 +145,7 @@
                     <label for="modo_recebimento">Modo de Recebimento</label>
                 </div>
                 <div class="input-field col s6">
-                    <input type="date" name="data_vencimento" id="data_vencimento_recebimento">
+                    <input type="date" name="data_vencimento" id="data_vencimento_recebimento" required>
                     <label for="data_vencimento_recebimento">Data de Vencimento</label>
                 </div>
                 <div class="input-field col s6">

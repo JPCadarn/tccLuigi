@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AnaliseFinanceiraController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PagamentosController;
 use App\Http\Controllers\RecebimentosController;
@@ -31,3 +32,5 @@ Route::get('/pagamentos/{id}', [PagamentosController::class, 'get'])->name('paga
 Route::post('/recebimentos/delete/{id}', [RecebimentosController::class, 'delete'])->name('recebimentos.delete')->middleware('auth');
 Route::post('/recebimentos/save', [RecebimentosController::class, 'save'])->name('recebimentos.save')->middleware('auth');
 Route::get('/recebimentos/{id}', [RecebimentosController::class, 'get'])->name('recebimentos.get')->middleware('auth');
+
+Route::get('/analiseFinanceira', [AnaliseFinanceiraController::class, 'get'])->name('analiseFinanceira.get')->middleware('auth');

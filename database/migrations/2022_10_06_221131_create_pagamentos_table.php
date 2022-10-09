@@ -20,6 +20,7 @@ return new class extends Migration
             $table->date('data_vencimento');
             $table->date('data_pagamento')->nullable();
             $table->string('modo_pagamento', 30)->nullable();
+            $table->enum('tipo_custo', ['F', 'V']);
             $table->timestamps();
         });
     }

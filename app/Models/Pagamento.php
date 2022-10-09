@@ -14,6 +14,7 @@ class Pagamento extends Model
         'valor',
         'modo_pagamento',
         'data_vencimento',
-        'data_pagamento'
+        'data_pagamento',
+        'tipo_custo'
     ];
 }

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Pagamento;
+use DateTime;
 use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\IOFactory;
 
@@ -20,11 +21,12 @@ class PagamentosController extends Controller
                     }
                     if (!empty(array_filter($row))) {
                         $insertData[] = [
-                            'data_vencimento' => implode('-', array_reverse(explode('/', $row[0]))),
-                            'data_pagamento' => implode('-', array_reverse(explode('/', $row[1]))),
+                            'data_vencimento' => DateTime::createFromFormat('d/m/Y', $row[0])->format('Y-m-d'),
+                            'data_pagamento' => DateTime::createFromFormat('d/m/Y', $row[1]) ? DateTime::createFromFormat('d/m/Y', $row[1])->format('Y-m-d') : null,
                             'pago_a' => $row[3],
-                            'modo_pagamento' => $row[6],
-                            'valor' => $row[9]
+                            'tipo_custo' => $row[6],
+                            'modo_pagamento' => $row[7],
+                            'valor' => $row[10]
                         ];
                     }
                 }
@@ -42,6 +44,7 @@ class PagamentosController extends Controller
         $Pagamento->modo_pagamento = $request->modo_pagamento;
         $Pagamento->data_vencimento = $request->data_vencimento;
         $Pagamento->data_pagamento = $request->data_pagamento;
+        $Pagamento->tipo_custo = $request->tipo_custo;
 
         if ($Pagamento->save()) {
             return redirect()->intended();

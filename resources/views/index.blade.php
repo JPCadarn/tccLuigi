@@ -14,6 +14,7 @@
                             <tr>
                                 <th>ID</th>
                                 <th>Pago a</th>
+                                <th>Tipo de Custo</th>
                                 <th>Data de Vencimento</th>
                                 <th>Data de Pagamento</th>
                                 <th>Modo de Pagamento</th>
@@ -27,6 +28,7 @@
                                 <tr>
                                     <td>{{$pagamento['id']}}</td>
                                     <td>{{$pagamento['pago_a']}}</td>
+                                    <td>{{$pagamento['tipo_custo']}}</td>
                                     <td>{{date('d/m/Y', strtotime($pagamento['data_vencimento']))}}</td>
                                     <td>{{date('d/m/Y', strtotime($pagamento['data_pagamento']))}}</td>
                                     <td>{{$pagamento['modo_pagamento']}}</td>
