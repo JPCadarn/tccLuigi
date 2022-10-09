@@ -15,5 +15,10 @@ class AnaliseFinanceiraController extends Controller
 
         $margemContribuicao = $receitaTotal - $totalVariavel;
         $pontoEquilibrio = $totalFixo / $margemContribuicao;
+
+        return [
+            'margemContribuicao' => $margemContribuicao,
+            'pontoEquilibrio' => $pontoEquilibrio
+        ];
     }
 }
