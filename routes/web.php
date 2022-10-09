@@ -3,6 +3,7 @@
 use App\Http\Controllers\AnaliseFinanceiraController;
 use App\Http\Controllers\IndexController;
 use App\Http\Controllers\PagamentosController;
+use App\Http\Controllers\PrecificacaoController;
 use App\Http\Controllers\RecebimentosController;
 use App\Http\Controllers\LoginController;
 use Illuminate\Support\Facades\Route;
@@ -34,3 +35,5 @@ Route::post('/recebimentos/save', [RecebimentosController::class, 'save'])->name
 Route::get('/recebimentos/{id}', [RecebimentosController::class, 'get'])->name('recebimentos.get')->middleware('auth');
 
 Route::get('/analiseFinanceira', [AnaliseFinanceiraController::class, 'get'])->name('analiseFinanceira.get')->middleware('auth');
+
+Route::get('/precificacao', [PrecificacaoController::class, 'get'])->name('precificacao.get')->middleware('auth');
