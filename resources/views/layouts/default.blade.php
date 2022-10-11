@@ -19,9 +19,7 @@
 <body>
 
 <main>
-    <div class="container">
-        @yield('content')
-    </div>
+    @yield('content')
 </main>
 
 @section('fab')
