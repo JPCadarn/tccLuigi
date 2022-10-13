@@ -16,8 +16,8 @@ class RecebimentosController extends Controller
             $planilhas = IOFactory::load($request->file('planilhaRecebimento')->getPathname())->getAllSheets();
             $insertData = [];
             foreach ($planilhas as $planilha) {
-                foreach ($planilha->toArray() as $key => $row) {
-                    if ($key === array_key_first($planilha->toArray()) && $row[0] === 'Data Atend.') {
+                foreach ($planilha->toArray(null, true, false) as $key => $row) {
+                    if ($key === array_key_first($planilha->toArray(null, true, false)) && $row[0] === 'Data Atend.') {
                         continue;
                     }
                     if (!empty(array_filter($row))) {
