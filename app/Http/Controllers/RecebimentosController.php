@@ -21,8 +21,8 @@ class RecebimentosController extends Controller
                     }
                     if (!empty(array_filter($row))) {
                         $insertData[] = [
-                            'data_vencimento' => DateTime::createFromFormat('d/m/Y', $row[1])->format('Y-m-d'),
-                            'data_recebimento' => DateTime::createFromFormat('d/m/Y', $row[2]) ? DateTime::createFromFormat('d/m/Y', $row[2])->format('Y-m-d') : null,
+                            'data_vencimento' => DateTime::createFromFormat('m/d/Y', $row[1])->format('Y-m-d'),
+                            'data_recebimento' => DateTime::createFromFormat('m/d/Y', $row[2]) ? DateTime::createFromFormat('m/d/Y', $row[2])->format('Y-m-d') : null,
                             'descricao' => substr($row[3], 0, 50),
                             'paciente' => substr($row[6], 0, 50),
                             'modo_recebimento' => $row[12],

@@ -20,9 +20,10 @@ class PagamentosController extends Controller
                         continue;
                     }
                     if (!empty(array_filter($row))) {
+//                        dd($row[1]);
                         $insertData[] = [
-                            'data_vencimento' => DateTime::createFromFormat('d/m/Y', $row[0])->format('Y-m-d'),
-                            'data_pagamento' => DateTime::createFromFormat('d/m/Y', $row[1]) ? DateTime::createFromFormat('d/m/Y', $row[1])->format('Y-m-d') : null,
+                            'data_vencimento' => DateTime::createFromFormat('m/d/Y', $row[0])->format('Y-m-d'),
+                            'data_pagamento' => DateTime::createFromFormat('m/d/Y', $row[1]) ? DateTime::createFromFormat('m/d/Y', $row[1])->format('Y-m-d') : null,
                             'pago_a' => $row[3],
                             'tipo_custo' => $row[6],
                             'modo_pagamento' => $row[7],
@@ -31,6 +32,7 @@ class PagamentosController extends Controller
                     }
                 }
             }
+            dd($insertData);
             if (Pagamento::insert($insertData)) {
                 return redirect()->intended();
             }

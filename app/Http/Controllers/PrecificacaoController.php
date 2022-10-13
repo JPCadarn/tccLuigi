@@ -20,7 +20,10 @@ class PrecificacaoController extends Controller
 
         return [
             'valorMedio' => $valorMedio,
-            'numeroMinimoClientes' => $numeroMinimoClientes
+            'numeroMinimoClientes' => $numeroMinimoClientes,
+            'totalFixo' => $totalFixo,
+            'totalVariavel' => $totalVariavel,
+            'numeroClientes' => $numeroClientes
         ];
     }
 }
