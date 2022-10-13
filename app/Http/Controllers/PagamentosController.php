@@ -6,6 +6,7 @@ use App\Models\Pagamento;
 use DateTime;
 use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 class PagamentosController extends Controller
 {
@@ -15,14 +16,14 @@ class PagamentosController extends Controller
             $planilhas = IOFactory::load($request->file('planilha')->getPathname())->getAllSheets();
             $insertData = [];
             foreach ($planilhas as $planilha) {
-                foreach ($planilha->toArray() as $key => $row) {
+                foreach ($planilha->toArray(null, true, false) as $key => $row) {
                     if ($key === array_key_first($planilha->toArray()) && $row[0] === 'Data Venc.') {
                         continue;
                     }
                     if (!empty(array_filter($row))) {
                         $insertData[] = [
-                            'data_vencimento' => DateTime::createFromFormat('m/d/Y', $row[0])->format('Y-m-d'),
-                            'data_pagamento' => DateTime::createFromFormat('m/d/Y', $row[1]) ? DateTime::createFromFormat('m/d/Y', $row[1])->format('Y-m-d') : null,
+                            'data_vencimento' => Date::excelToDateTimeObject($row[0])->format('Y-m-d'),
+                            'data_pagamento' => Date::excelToDateTimeObject($row[1]) ? Date::excelToDateTimeObject($row[1])->format('Y-m-d') : null,
                             'pago_a' => $row[3],
                             'tipo_custo' => $row[6],
                             'modo_pagamento' => $row[7],

@@ -6,6 +6,7 @@ use App\Models\Recebimento;
 use DateTime;
 use Illuminate\Http\Request;
 use PhpOffice\PhpSpreadsheet\IOFactory;
+use PhpOffice\PhpSpreadsheet\Shared\Date;
 
 class RecebimentosController extends Controller
 {
@@ -21,8 +22,8 @@ class RecebimentosController extends Controller
                     }
                     if (!empty(array_filter($row))) {
                         $insertData[] = [
-                            'data_vencimento' => DateTime::createFromFormat('m/d/Y', $row[1])->format('Y-m-d'),
-                            'data_recebimento' => DateTime::createFromFormat('m/d/Y', $row[2]) ? DateTime::createFromFormat('m/d/Y', $row[2])->format('Y-m-d') : null,
+                            'data_vencimento' => Date::excelToDateTimeObject($row[1])->format('Y-m-d'),
+                            'data_recebimento' => Date::excelToDateTimeObject($row[2]) ? Date::excelToDateTimeObject($row[2])->format('Y-m-d') : null,
                             'descricao' => substr($row[3], 0, 50),
                             'paciente' => substr($row[6], 0, 50),
                             'modo_recebimento' => $row[12],
