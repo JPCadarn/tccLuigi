@@ -20,7 +20,6 @@ class PagamentosController extends Controller
                         continue;
                     }
                     if (!empty(array_filter($row))) {
-//                        dd($row[1]);
                         $insertData[] = [
                             'data_vencimento' => DateTime::createFromFormat('m/d/Y', $row[0])->format('Y-m-d'),
                             'data_pagamento' => DateTime::createFromFormat('m/d/Y', $row[1]) ? DateTime::createFromFormat('m/d/Y', $row[1])->format('Y-m-d') : null,
@@ -32,7 +31,6 @@ class PagamentosController extends Controller
                     }
                 }
             }
-            dd($insertData);
             if (Pagamento::insert($insertData)) {
                 return redirect()->intended();
             }
