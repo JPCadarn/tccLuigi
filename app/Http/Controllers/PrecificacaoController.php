@@ -18,11 +18,11 @@ class PrecificacaoController extends Controller
         $numeroMinimoClientes = abs($diferencaTotais / $valorMedio);
 
         return [
-            'valorMedio' => $valorMedio,
-            'numeroMinimoClientes' => $numeroMinimoClientes,
-            'totalFixo' => $totalFixo,
-            'totalVariavel' => $totalVariavel,
-            'numeroClientes' => $numeroClientes
+            'valorMedio' => 'R$ '.number_format($valorMedio, 2, ',', '.'),
+            'numeroMinimoClientes' => number_format($numeroMinimoClientes, 2, ',', '.'),
+            'totalFixo' => 'R$ '.number_format($totalFixo, 2, ',', '.'),
+            'totalVariavel' => 'R$ '.number_format($totalVariavel, 2, ',', '.'),
+            'numeroClientes' => number_format($numeroClientes, 2, ',', '.')
         ];
     }
 }
