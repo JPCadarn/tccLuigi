@@ -86,3 +86,20 @@ $('.btnEditRecebimento').on('click', function (event) {
         instance.open();
     });
 });
+
+$('#btnAnaliseFinanceira').on('click', function (event) {
+    $.ajax({
+        type: 'GET',
+        url: event.currentTarget.dataset.action,
+    }).done(function (response) {
+
+    });
+});
+$('#btnPrecificacao').on('click', function (event) {
+    $.ajax({
+        type: 'GET',
+        url: event.currentTarget.dataset.action,
+    }).done(function (response) {
+
+    });
+});

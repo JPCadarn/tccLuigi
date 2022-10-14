@@ -177,7 +177,7 @@
                         <label for="ponto_equilibro">Ponto de Equilíbrio</label>
                     </div>
                     <div class="row center">
-                        <button class="btn waves-effect waves-light" id="btnAnaliseFinanceira">Análise Financeira</button>
+                        <button class="btn waves-effect waves-light" id="btnAnaliseFinanceira" data-action="{{route('analiseFinanceira.get')}}">Análise Financeira</button>
                     </div>
                     <div id="apresentacaoSituacaoFinanceira">
 
@@ -194,7 +194,7 @@
                         <label for="ponto_equilibro_precificacao">Ponto de Equilíbrio</label>
                     </div>
                     <div class="row center">
-                        <button class="btn waves-effect waves-light" id="btnPrecificacao">Precificação</button>
+                        <button class="btn waves-effect waves-light" id="btnPrecificacao" data-action="{{route('precificacao.get')}}">Precificação</button>
                     </div>
                     <div id="apresentacaoPrecificacao">
 
