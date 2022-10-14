@@ -101,113 +101,97 @@
 </div>
 
 <div id="modalRecebimento" class="modal">
-    <form action="{{route('recebimentos.save')}}" method="POST" enctype="multipart/form-data">
-        @csrf
-        <div class="modal-content">
-            <h5 class="center">Contas a Pagar</h5>
-            <br>
-            <div class="row" id="rowSwitchRecebimento">
-                <div class="switch">
-                    <label>
-                        Manual
-                        <input type="checkbox" id="switchRecebimentos"><span class="lever"></span>
-                        Automática
-                    </label>
-                </div>
-                <div class="file-field input-field" id="fileInputRecebimentos">
-                    <div class="btn">
-                        <span>Arquivo</span>
-                        <input type="file" name="planilhaRecebimento">
-                    </div>
-                    <div class="file-path-wrapper">
-                        <input class="file-path validate" type="text">
-                    </div>
-                </div>
+    <div class="modal-content">
+        <h5 class="center">Contas a Pagar</h5>
+        <br>
+        <div class="row" id="rowSwitchRecebimento">
+            <div class="switch">
+                <label>
+                    Manual
+                    <input type="checkbox" id="switchRecebimentos"><span class="lever"></span>
+                    Automática
+                </label>
             </div>
-            <div class="row" id="divRecebimentoManual">
-                <input type="hidden" id="idRecebimento" name="id">
-                <div class="input-field col s12">
-                    <input id="descricao" name="descricao" type="text" data-length="50" required>
-                    <label for="descricao">Descrição</label>
+            <div class="file-field input-field" id="fileInputRecebimentos">
+                <div class="btn">
+                    <span>Arquivo</span>
+                    <input type="file" name="planilhaRecebimento">
                 </div>
-                <div class="input-field col s12">
-                    <input id="paciente" name="paciente" type="text" data-length="50 required">
-                    <label for="paciente">Paciente</label>
-                </div>
-                <div class="input-field col s6">
-                    <input class="maskMoney" id="valor_recebimento" name="valor" type="text" required>
-                    <label for="valor_recebimento">Valor</label>
-                </div>
-                <div class="input-field col s6">
-                    <input id="modo_recebimento" name="modo_recebimento" type="text">
-                    <label for="modo_recebimento">Modo de Recebimento</label>
-                </div>
-                <div class="input-field col s6">
-                    <input type="date" name="data_vencimento" id="data_vencimento_recebimento" required>
-                    <label for="data_vencimento_recebimento">Data de Vencimento</label>
-                </div>
-                <div class="input-field col s6">
-                    <input type="date" name="data_recebimento" id="data_recebimento">
-                    <label for="data_recebimento">Data de Recebimentos</label>
+                <div class="file-path-wrapper">
+                    <input class="file-path validate" type="text">
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button class="btn waves-effect waves-light" type="submit">Enviar
-                <i class="material-icons right">send</i>
-            </button>
+        <div class="row" id="divRecebimentoManual">
+            <input type="hidden" id="idRecebimento" name="id">
+            <div class="input-field col s12">
+                <input id="descricao" name="descricao" type="text" data-length="50" required>
+                <label for="descricao">Descrição</label>
+            </div>
+            <div class="input-field col s12">
+                <input id="paciente" name="paciente" type="text" data-length="50 required">
+                <label for="paciente">Paciente</label>
+            </div>
+            <div class="input-field col s6">
+                <input class="maskMoney" id="valor_recebimento" name="valor" type="text" required>
+                <label for="valor_recebimento">Valor</label>
+            </div>
+            <div class="input-field col s6">
+                <input id="modo_recebimento" name="modo_recebimento" type="text">
+                <label for="modo_recebimento">Modo de Recebimento</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="date" name="data_vencimento" id="data_vencimento_recebimento" required>
+                <label for="data_vencimento_recebimento">Data de Vencimento</label>
+            </div>
+            <div class="input-field col s6">
+                <input type="date" name="data_recebimento" id="data_recebimento">
+                <label for="data_recebimento">Data de Recebimentos</label>
+            </div>
         </div>
-    </form>
+    </div>
+    <div class="modal-footer">
+        <button class="btn waves-effect waves-light" type="submit">Enviar
+            <i class="material-icons right">send</i>
+        </button>
+    </div>
 </div>
 
 <div id="modalPrecificacao" class="modal">
-    <form action="/precificacoes/insert" method="POST">
-        <div class="modal-content">
-            <h5 class="center">Análise Financeira e Precificação</h5>
-            <br>
-            <div class="row">
-                <div class="col s6">
-                    <h6 class="center">Análise Financeira</h6>
-                    <div class="input-field col s12">
-                        <input type="number" step="1" id="margem_contribuicao" name="margem_contribuicao">
-                        <label for="margem_contribuicao">Margem de Contribuição</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <input type="number" id="ponto_equilibro" name="ponto_equilibro">
-                        <label for="ponto_equilibro">Ponto de Equilíbrio</label>
-                    </div>
-                    <div class="row center">
-                        <button class="btn waves-effect waves-light" id="btnAnaliseFinanceira" data-action="{{route('analiseFinanceira.get')}}">Análise Financeira</button>
-                    </div>
-                    <div id="apresentacaoSituacaoFinanceira">
-
-                    </div>
+    <div class="modal-content">
+        <h5 class="center">Análise Financeira e Precificação</h5>
+        <br>
+        <div class="row">
+            <div class="col s6">
+                <h6 class="center">Análise Financeira</h6>
+                <div id="apresentacaoAnaliseFinanceira">
+                    <div class="row" id="headerAnaliseFinanceira"></div>
+                    <div class="row" id="totalVariavelAnaliseFinanceira"></div>
+                    <div class="row" id="totalFixoAnaliseFinanceira"></div>
+                    <div class="row" id="margemContribuicaoAnaliseFinanceira"></div>
+                    <div class="row" id="pontoEquilibrioAnaliseFinanceira"></div>
+                    <div class="row" id="receitaTotalAnaliseFinanceira"></div>
                 </div>
-                <div class="col s6">
-                    <h6 class="center">Realizar Precificação</h6>
-                    <div class="input-field col s12">
-                        <input type="number" step="1" id="margem_contribuicao_precificacao" name="margem_contribuicao_precificacao">
-                        <label for="margem_contribuicao_precificacao">Margem de Contribuição</label>
-                    </div>
-                    <div class="input-field col s12">
-                        <input type="number" id="ponto_equilibro_precificacao" name="ponto_equilibro_precificacao">
-                        <label for="ponto_equilibro_precificacao">Ponto de Equilíbrio</label>
-                    </div>
-                    <div class="row center">
-                        <button class="btn waves-effect waves-light" id="btnPrecificacao" data-action="{{route('precificacao.get')}}">Precificação</button>
-                    </div>
-                    <div id="apresentacaoPrecificacao">
-
-                    </div>
+                <div class="row center">
+                    <button class="btn waves-effect waves-light" id="btnAnaliseFinanceira" data-action="{{route('analiseFinanceira.get')}}">Análise Financeira</button>
+                </div>
+            </div>
+            <div class="col s6">
+                <h6 class="center">Realizar Precificação</h6>
+                <div id="apresentacaoPrecificacao">
+                    <div class="row" id="headerPrecifcacao"></div>
+                    <div class="row" id="totalVariavelPrecificacao"></div>
+                    <div class="row" id="totalFixoPrecificacao"></div>
+                    <div class="row" id="nroMinimoClientesPrecificacao"></div>
+                    <div class="row" id="numeroClientesPrecificacao"></div>
+                    <div class="row" id="valorMedioPrecificacao"></div>
+                </div>
+                <div class="row center">
+                    <button class="btn waves-effect waves-light" id="btnPrecificacao" data-action="{{route('precificacao.get')}}">Precificação</button>
                 </div>
             </div>
         </div>
-        <div class="modal-footer">
-            <button class="btn waves-effect waves-light" type="submit">Enviar
-                <i class="material-icons right">send</i>
-            </button>
-        </div>
-    </form>
+    </div>
 </div>
 
 <script src="{{asset('js/components.js')}}"></script>

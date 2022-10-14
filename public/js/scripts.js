@@ -1,5 +1,4 @@
 function validarModoPagamento() {
-
     if ($('#switchPagamentos').prop('checked')) {
         $('#divPagamentoManual').hide();
         $('#fileInputPagamentos').show();
@@ -16,6 +15,7 @@ function validarModoPagamento() {
         $('#tipoCusto').attr('required', true);
     }
 }
+
 function validarModoRecebimento() {
     if ($('#switchRecebimentos').prop('checked')) {
         $('#divRecebimentoManual').hide();
@@ -92,7 +92,12 @@ $('#btnAnaliseFinanceira').on('click', function (event) {
         type: 'GET',
         url: event.currentTarget.dataset.action,
     }).done(function (response) {
-
+        $('#headerAnaliseFinanceira').html('<h5>Resultados:</h5>');
+        $('#margemContribuicaoAnaliseFinanceira').html('<b>Margem de Contribuição: </b>'+response.margemContribuicao);
+        $('#pontoEquilibrioAnaliseFinanceira').html('<b>Ponto de Equilíbrio: </b>'+response.pontoEquilibrio);
+        $('#receitaTotalAnaliseFinanceira').html('<b>Receita Total: </b>'+response.receitaTotal);
+        $('#totalFixoAnaliseFinanceira').html('<b>Total Fixo: </b>'+response.totalFixo);
+        $('#totalVariavelAnaliseFinanceira').html('<b>Total Variável: </b>'+response.totalVariavel);
     });
 });
 $('#btnPrecificacao').on('click', function (event) {
@@ -100,6 +105,11 @@ $('#btnPrecificacao').on('click', function (event) {
         type: 'GET',
         url: event.currentTarget.dataset.action,
     }).done(function (response) {
-
+        $('#headerPrecifcacao').html('<h5>Resultados: </h5>');
+        $('#valorMedioPrecificacao').html('<b>Valor Médio: </b>'+response.valorMedio);
+        $('#nroMinimoClientesPrecificacao').html('<b>Número mínimo de clientes: </b>'+response.numeroMinimoClientes);
+        $('#totalFixoPrecificacao').html('<b>Total Fixo: </b>'+response.totalFixo);
+        $('#totalVariavelPrecificacao').html('<b>Total Variável: </b>'+response.totalVariavel);
+        $('#numeroClientesPrecificacao').html('<b>Número de Clientes: </b>'+response.numeroClientes);
     });
 });
