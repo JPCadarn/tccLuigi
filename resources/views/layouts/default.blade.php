@@ -177,7 +177,7 @@
                 </div>
             </div>
             <div class="col s6">
-                <h6 class="center">Realizar Precificação</h6>
+                <h6 class="center">Precificação</h6>
                 <div id="apresentacaoPrecificacao">
                     <div class="row" id="headerPrecifcacao"></div>
                     <div class="row" id="totalVariavelPrecificacao"></div>

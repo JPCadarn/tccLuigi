@@ -34,6 +34,9 @@ function validarModoRecebimento() {
     }
 }
 
+$('#apresentacaoPrecificacao').hide()
+$('#apresentacaoAnaliseFinanceira').hide()
+
 $('#switchPagamentos').on('change', function(){
     validarModoPagamento();
 });
@@ -92,6 +95,7 @@ $('#btnAnaliseFinanceira').on('click', function (event) {
         type: 'GET',
         url: event.currentTarget.dataset.action,
     }).done(function (response) {
+        $('#apresentacaoAnaliseFinanceira').show()
         $('#headerAnaliseFinanceira').html('<h5>Resultados:</h5>');
         $('#margemContribuicaoAnaliseFinanceira').html('<b>Margem de Contribuição: </b>'+response.margemContribuicao);
         $('#pontoEquilibrioAnaliseFinanceira').html('<b>Ponto de Equilíbrio: </b>'+response.pontoEquilibrio);
@@ -105,6 +109,7 @@ $('#btnPrecificacao').on('click', function (event) {
         type: 'GET',
         url: event.currentTarget.dataset.action,
     }).done(function (response) {
+        $('#apresentacaoPrecificacao').show()
         $('#headerPrecifcacao').html('<h5>Resultados: </h5>');
         $('#valorMedioPrecificacao').html('<b>Valor Médio: </b>'+response.valorMedio);
         $('#nroMinimoClientesPrecificacao').html('<b>Número mínimo de clientes: </b>'+response.numeroMinimoClientes);
