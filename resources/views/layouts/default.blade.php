@@ -101,60 +101,63 @@
 </div>
 
 <div id="modalRecebimento" class="modal">
-    <div class="modal-content">
-        <h5 class="center">Contas a Pagar</h5>
-        <br>
-        <div class="row" id="rowSwitchRecebimento">
-            <div class="switch">
-                <label>
-                    Manual
-                    <input type="checkbox" id="switchRecebimentos"><span class="lever"></span>
-                    Automática
-                </label>
-            </div>
-            <div class="file-field input-field" id="fileInputRecebimentos">
-                <div class="btn">
-                    <span>Arquivo</span>
-                    <input type="file" name="planilhaRecebimento">
+    <form action="{{route('recebimentos.save')}}" method="POST" enctype="multipart/form-data">
+        @csrf
+        <div class="modal-content">
+            <h5 class="center">Contas a Receber</h5>
+            <br>
+            <div class="row" id="rowSwitchRecebimento">
+                <div class="switch">
+                    <label>
+                        Manual
+                        <input type="checkbox" id="switchRecebimentos"><span class="lever"></span>
+                        Automática
+                    </label>
                 </div>
-                <div class="file-path-wrapper">
-                    <input class="file-path validate" type="text">
+                <div class="file-field input-field" id="fileInputRecebimentos">
+                    <div class="btn">
+                        <span>Arquivo</span>
+                        <input type="file" name="planilhaRecebimento">
+                    </div>
+                    <div class="file-path-wrapper">
+                        <input class="file-path validate" type="text">
+                    </div>
+                </div>
+            </div>
+            <div class="row" id="divRecebimentoManual">
+                <input type="hidden" id="idRecebimento" name="id">
+                <div class="input-field col s12">
+                    <input id="descricao" name="descricao" type="text" data-length="50" required>
+                    <label for="descricao">Descrição</label>
+                </div>
+                <div class="input-field col s12">
+                    <input id="paciente" name="paciente" type="text" data-length="50 required">
+                    <label for="paciente">Paciente</label>
+                </div>
+                <div class="input-field col s6">
+                    <input class="maskMoney" id="valor_recebimento" name="valor" type="text" required>
+                    <label for="valor_recebimento">Valor</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="modo_recebimento" name="modo_recebimento" type="text">
+                    <label for="modo_recebimento">Modo de Recebimento</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="date" name="data_vencimento" id="data_vencimento_recebimento" required>
+                    <label for="data_vencimento_recebimento">Data de Vencimento</label>
+                </div>
+                <div class="input-field col s6">
+                    <input type="date" name="data_recebimento" id="data_recebimento">
+                    <label for="data_recebimento">Data de Recebimentos</label>
                 </div>
             </div>
         </div>
-        <div class="row" id="divRecebimentoManual">
-            <input type="hidden" id="idRecebimento" name="id">
-            <div class="input-field col s12">
-                <input id="descricao" name="descricao" type="text" data-length="50" required>
-                <label for="descricao">Descrição</label>
-            </div>
-            <div class="input-field col s12">
-                <input id="paciente" name="paciente" type="text" data-length="50 required">
-                <label for="paciente">Paciente</label>
-            </div>
-            <div class="input-field col s6">
-                <input class="maskMoney" id="valor_recebimento" name="valor" type="text" required>
-                <label for="valor_recebimento">Valor</label>
-            </div>
-            <div class="input-field col s6">
-                <input id="modo_recebimento" name="modo_recebimento" type="text">
-                <label for="modo_recebimento">Modo de Recebimento</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="date" name="data_vencimento" id="data_vencimento_recebimento" required>
-                <label for="data_vencimento_recebimento">Data de Vencimento</label>
-            </div>
-            <div class="input-field col s6">
-                <input type="date" name="data_recebimento" id="data_recebimento">
-                <label for="data_recebimento">Data de Recebimentos</label>
-            </div>
+        <div class="modal-footer">
+            <button class="btn waves-effect waves-light" type="submit">Enviar
+                <i class="material-icons right">send</i>
+            </button>
         </div>
-    </div>
-    <div class="modal-footer">
-        <button class="btn waves-effect waves-light" type="submit">Enviar
-            <i class="material-icons right">send</i>
-        </button>
-    </div>
+    </form>
 </div>
 
 <div id="modalPrecificacao" class="modal">
@@ -168,9 +171,9 @@
                     <div class="row" id="headerAnaliseFinanceira"></div>
                     <div class="row" id="totalVariavelAnaliseFinanceira"></div>
                     <div class="row" id="totalFixoAnaliseFinanceira"></div>
+                    <div class="row" id="receitaTotalAnaliseFinanceira"></div>
                     <div class="row" id="margemContribuicaoAnaliseFinanceira"></div>
                     <div class="row" id="pontoEquilibrioAnaliseFinanceira"></div>
-                    <div class="row" id="receitaTotalAnaliseFinanceira"></div>
                 </div>
                 <div class="row center">
                     <button class="btn waves-effect waves-light" id="btnAnaliseFinanceira" data-action="{{route('analiseFinanceira.get')}}">Análise Financeira</button>

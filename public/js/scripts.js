@@ -95,10 +95,20 @@ $('#btnAnaliseFinanceira').on('click', function (event) {
         type: 'GET',
         url: event.currentTarget.dataset.action,
     }).done(function (response) {
-        $('#apresentacaoAnaliseFinanceira').show()
+        let corPontoEquilibrio = '';
+        let pontoEquilibrioFormatado = parseFloat(response.pontoEquilibrio.replaceAll('.', '').replaceAll(',', '.'))
+        if (pontoEquilibrioFormatado < 0) {
+            corPontoEquilibrio = 'red-text'
+        }else if (pontoEquilibrioFormatado > 0) {
+            corPontoEquilibrio = 'green-text'
+        } else {
+            corPontoEquilibrio = 'blue-text'
+        }
+
+        $('#apresentacaoAnaliseFinanceira').show();
         $('#headerAnaliseFinanceira').html('<h5>Resultados:</h5>');
         $('#margemContribuicaoAnaliseFinanceira').html('<b>Margem de Contribuição: </b>'+response.margemContribuicao);
-        $('#pontoEquilibrioAnaliseFinanceira').html('<b>Ponto de Equilíbrio: </b>'+response.pontoEquilibrio);
+        $('#pontoEquilibrioAnaliseFinanceira').html('<b>Ponto de Equilíbrio: </b><span class="'+corPontoEquilibrio+'">'+response.pontoEquilibrio+'</span>');
         $('#receitaTotalAnaliseFinanceira').html('<b>Receita Total: </b>'+response.receitaTotal);
         $('#totalFixoAnaliseFinanceira').html('<b>Total Fixo: </b>'+response.totalFixo);
         $('#totalVariavelAnaliseFinanceira').html('<b>Total Variável: </b>'+response.totalVariavel);
