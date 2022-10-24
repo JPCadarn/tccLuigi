@@ -59,6 +59,30 @@
                 <div class="file-path-wrapper">
                     <input class="file-path validate" type="text">
                 </div>
+                <div class="input-field col s6">
+                    <input id="posicao_coluna_pago_a" name="posicao_coluna_pago_a" type="number" required>
+                    <label for="posicao_coluna_pago_a">Coluna Pago A</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="posicao_coluna_valor" name="posicao_coluna_valor" type="number" required>
+                    <label for="posicao_coluna_valor">Coluna Valor</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="posicao_coluna_tipo_custo" name="posicao_coluna_tipo_custo" type="number" required>
+                    <label for="posicao_coluna_tipo_custo">Coluna Tipo Custo</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="posicao_coluna_modo_pagamento" name="posicao_coluna_modo_pagamento" type="number" required>
+                    <label for="posicao_coluna_modo_pagamento">Coluna Modo Pagamento</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="posicao_coluna_data_vencimento" name="posicao_coluna_data_vencimento" type="number" required>
+                    <label for="posicao_coluna_data_vencimento">Coluna Data de Vencimento</label>
+                </div>
+                <div class="input-field col s6">
+                    <input id="posicao_coluna_pagamento" name="posicao_coluna_pagamento" type="number" required>
+                    <label for="posicao_coluna_pagamento">Coluna Data de Pagamento</label>
+                </div>
             </div>
             <div class="row" id="divPagamentoManual">
                 <input type="hidden" name="id" id="id">
@@ -121,6 +145,30 @@
                     </div>
                     <div class="file-path-wrapper">
                         <input class="file-path validate" type="text">
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="posicao_coluna_descricao" name="posicao_coluna_descricao" type="number" required>
+                        <label for="posicao_coluna_descricao">Coluna Descrição</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="posicao_coluna_valor" name="posicao_coluna_valor" type="number" required>
+                        <label for="posicao_coluna_valor">Coluna Valor</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="posicao_coluna_descricao" name="posicao_coluna_descricao" type="number" required>
+                        <label for="posicao_coluna_descricao">Coluna Descrição</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="posicao_coluna_modo_recebimento" name="posicao_coluna_modo_recebimento" type="number" required>
+                        <label for="posicao_coluna_modo_recebimento">Coluna Modo Recebimento</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="posicao_coluna_data_vencimento" name="posicao_coluna_data_vencimento" type="number" required>
+                        <label for="posicao_coluna_data_vencimento">Coluna Data de Vencimento</label>
+                    </div>
+                    <div class="input-field col s6">
+                        <input id="posicao_coluna_recebimento" name="posicao_coluna_recebimento" type="number" required>
+                        <label for="posicao_coluna_recebimento">Coluna Data de Recebimento</label>
                     </div>
                 </div>
             </div>

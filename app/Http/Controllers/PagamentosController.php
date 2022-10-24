@@ -17,17 +17,17 @@ class PagamentosController extends Controller
             $insertData = [];
             foreach ($planilhas as $planilha) {
                 foreach ($planilha->toArray(null, true, false) as $key => $row) {
-                    if ($key === array_key_first($planilha->toArray()) && $row[0] === 'Data Venc.') {
+                    if ($key === array_key_first($planilha->toArray()) && $row[$request->posicao_coluna_data_vencimento] === 'Data Venc.') {
                         continue;
                     }
                     if (!empty(array_filter($row))) {
                         $insertData[] = [
-                            'data_vencimento' => Date::excelToDateTimeObject($row[0])->format('Y-m-d'),
-                            'data_pagamento' => Date::excelToDateTimeObject($row[1]) ? Date::excelToDateTimeObject($row[1])->format('Y-m-d') : null,
-                            'pago_a' => $row[3],
-                            'tipo_custo' => $row[6],
-                            'modo_pagamento' => $row[7],
-                            'valor' => $row[10]
+                            'data_vencimento' => Date::excelToDateTimeObject($row[$request->posicao_coluna_data_vencimento])->format('Y-m-d'),
+                            'data_pagamento' => Date::excelToDateTimeObject($row[$request->posicao_coluna_data_pagamento]) ? Date::excelToDateTimeObject($row[1])->format('Y-m-d') : null,
+                            'pago_a' => $row[$request->posicao_coluna_pago_a],
+                            'tipo_custo' => $row[$request->posicao_coluna_tipo_custo],
+                            'modo_pagamento' => $row[$request->posicao_coluna_modo_pagamento],
+                            'valor' => $row[$request->posicao_coluna_valor]
                         ];
                     }
                 }
