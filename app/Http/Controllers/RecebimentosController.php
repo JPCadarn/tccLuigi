@@ -22,12 +22,12 @@ class RecebimentosController extends Controller
                     }
                     if (!empty(array_filter($row))) {
                         $insertData[] = [
-                            'data_vencimento' => Date::excelToDateTimeObject($row[$request->posicao_coluna_data_vencimento])->format('Y-m-d'),
-                            'data_recebimento' => Date::excelToDateTimeObject($row[$request->posicao_coluna_data_recebimento]) ? Date::excelToDateTimeObject($row[2])->format('Y-m-d') : null,
-                            'descricao' => substr($row[$request->posicao_coluna_descricao], 0, 50),
-                            'paciente' => substr($row[$request->posicao_coluna_paciente], 0, 50),
-                            'modo_recebimento' => $row[$request->posicao_coluna_posicao_coluna_modo_recebimento],
-                            'valor' => $row[$request->posicao_coluna_valor]
+                            'data_vencimento' => Date::excelToDateTimeObject($row[($request->posicao_coluna_data_vencimento - 1)])->format('Y-m-d'),
+                            'data_recebimento' => Date::excelToDateTimeObject($row[($request->posicao_coluna_data_recebimento - 1)]) ? Date::excelToDateTimeObject($row[2])->format('Y-m-d') : null,
+                            'descricao' => substr($row[($request->posicao_coluna_descricao - 1)], 0, 50),
+                            'paciente' => substr($row[($request->posicao_coluna_paciente - 1)], 0, 50),
+                            'modo_recebimento' => $row[($request->posicao_coluna_posicao_coluna_modo_recebimento - 1)],
+                            'valor' => $row[($request->posicao_coluna_valor - 1)]
                         ];
                     }
                 }

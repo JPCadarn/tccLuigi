@@ -22,12 +22,12 @@ class PagamentosController extends Controller
                     }
                     if (!empty(array_filter($row))) {
                         $insertData[] = [
-                            'data_vencimento' => Date::excelToDateTimeObject($row[$request->posicao_coluna_data_vencimento])->format('Y-m-d'),
-                            'data_pagamento' => Date::excelToDateTimeObject($row[$request->posicao_coluna_data_pagamento]) ? Date::excelToDateTimeObject($row[1])->format('Y-m-d') : null,
-                            'pago_a' => $row[$request->posicao_coluna_pago_a],
-                            'tipo_custo' => $row[$request->posicao_coluna_tipo_custo],
-                            'modo_pagamento' => $row[$request->posicao_coluna_modo_pagamento],
-                            'valor' => $row[$request->posicao_coluna_valor]
+                            'data_vencimento' => Date::excelToDateTimeObject($row[($request->posicao_coluna_data_vencimento - 1)])->format('Y-m-d'),
+                            'data_pagamento' => Date::excelToDateTimeObject($row[($request->posicao_coluna_data_pagamento - 1)]) ? Date::excelToDateTimeObject($row[1])->format('Y-m-d') : null,
+                            'pago_a' => $row[($request->posicao_coluna_pago_a - 1)],
+                            'tipo_custo' => $row[($request->posicao_coluna_tipo_custo - 1)],
+                            'modo_pagamento' => $row[($request->posicao_coluna_modo_pagamento - 1)],
+                            'valor' => $row[($request->posicao_coluna_valor - 1)]
                         ];
                     }
                 }
