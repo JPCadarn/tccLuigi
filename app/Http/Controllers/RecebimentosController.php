@@ -17,7 +17,7 @@ class RecebimentosController extends Controller
             $insertData = [];
             foreach ($planilhas as $planilha) {
                 foreach ($planilha->toArray(null, true, false) as $key => $row) {
-                    if ($key === array_key_first($planilha->toArray(null, true, false)) && $row[$request->posicao_coluna_data_vencimento] === 'Data Venc.') {
+                    if ($key === array_key_first($planilha->toArray(null, true, false)) && $row[($request->posicao_coluna_data_vencimento - 1)] === 'Data Venc.') {
                         continue;
                     }
                     if (!empty(array_filter($row))) {
