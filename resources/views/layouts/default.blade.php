@@ -80,8 +80,8 @@
                     <label for="posicao_coluna_data_vencimento">Coluna Data de Vencimento</label>
                 </div>
                 <div class="input-field col s6">
-                    <input id="posicao_coluna_pagamento" name="posicao_coluna_pagamento" type="number" value="2" required>
-                    <label for="posicao_coluna_pagamento">Coluna Data de Pagamento</label>
+                    <input id="posicao_coluna_data_pagamento" name="posicao_coluna_data_pagamento" type="number" value="2" required>
+                    <label for="posicao_coluna_data_pagamento">Coluna Data de Pagamento</label>
                 </div>
             </div>
             <div class="row" id="divPagamentoManual">
@@ -167,8 +167,8 @@
                         <label for="posicao_coluna_data_vencimento">Coluna Data de Vencimento</label>
                     </div>
                     <div class="input-field col s6">
-                        <input id="posicao_coluna_recebimento" name="posicao_coluna_recebimento" type="number" value="3" required>
-                        <label for="posicao_coluna_recebimento">Coluna Data de Recebimento</label>
+                        <input id="posicao_coluna_data_recebimento" name="posicao_coluna_data_recebimento" type="number" value="3" required>
+                        <label for="posicao_coluna_data_recebimento">Coluna Data de Recebimento</label>
                     </div>
                 </div>
             </div>
