@@ -26,7 +26,7 @@ class RecebimentosController extends Controller
                             'data_recebimento' => Date::excelToDateTimeObject($row[($request->posicao_coluna_data_recebimento - 1)]) ? Date::excelToDateTimeObject($row[2])->format('Y-m-d') : null,
                             'descricao' => substr($row[($request->posicao_coluna_descricao - 1)], 0, 50),
                             'paciente' => substr($row[($request->posicao_coluna_paciente - 1)], 0, 50),
-                            'modo_recebimento' => $row[($request->posicao_coluna_posicao_coluna_modo_recebimento - 1)],
+                            'modo_recebimento' => $row[($request->posicao_coluna_modo_recebimento - 1)],
                             'valor' => $row[($request->posicao_coluna_valor - 1)]
                         ];
                     }
