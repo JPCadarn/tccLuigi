@@ -95,15 +95,19 @@ $('#btnAnaliseFinanceira').on('click', function (event) {
         type: 'GET',
         url: event.currentTarget.dataset.action,
     }).done(function (response) {
+        console.log(response);
         let corPontoEquilibrio = '';
+        let somaTotais = response.totalFixoBruto + response.totalVariavelBruto;
         let pontoEquilibrioFormatado = parseFloat(response.pontoEquilibrio.replaceAll('.', '').replaceAll(',', '.'))
-        if (pontoEquilibrioFormatado < 0) {
+        if (pontoEquilibrioFormatado > somaTotais) {
             corPontoEquilibrio = 'red-text'
-        }else if (pontoEquilibrioFormatado > 0) {
+        }else if (pontoEquilibrioFormatado < somaTotais) {
             corPontoEquilibrio = 'green-text'
         } else {
             corPontoEquilibrio = 'blue-text'
         }
+        console.log(somaTotais);
+        console.log(pontoEquilibrioFormatado);
 
         $('#apresentacaoAnaliseFinanceira').show();
         $('#headerAnaliseFinanceira').html('<h5>Resultados:</h5>');
@@ -119,12 +123,15 @@ $('#btnPrecificacao').on('click', function (event) {
         type: 'GET',
         url: event.currentTarget.dataset.action,
     }).done(function (response) {
+        console.log(response);
         $('#apresentacaoPrecificacao').show()
         $('#headerPrecifcacao').html('<h5>Resultados: </h5>');
         $('#valorMedioPrecificacao').html('<b>Valor Médio: </b>'+response.valorMedio);
-        $('#nroMinimoClientesPrecificacao').html('<b>Número mínimo de clientes: </b>'+response.numeroMinimoClientes);
-        $('#totalFixoPrecificacao').html('<b>Total Fixo: </b>'+response.totalFixo);
-        $('#totalVariavelPrecificacao').html('<b>Total Variável: </b>'+response.totalVariavel);
         $('#numeroClientesPrecificacao').html('<b>Número de Clientes: </b>'+response.numeroClientes);
+        $('#receitaMedia').html('<b>Receita Média: </b>'+response.receitaMedia);
+        $('#margemContribuicaoPrecificacao').html('<b>Margem de Contribuição: </b>'+response.margemContribuicao);
+        $('#pontoEquilibrioPrecificacao').html('<b>Ponto de Equilíbrio: </b>'+response.pontoEquilibrio);
+        $('#valorMinimo').html('<b>Valor Mínimo por consulta: </b>'+response.valorMinimo);
+        $('#nroMinimoComPrecificacao').html('<b>Número mínimo de clientes com precificação: </b>'+response.nroMinimoClientesComPrecificacao);
     });
 });

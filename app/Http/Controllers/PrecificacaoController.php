@@ -16,13 +16,23 @@ class PrecificacaoController extends Controller
         $diferencaTotais = $totalFixo - $totalVariavel;
         $valorMedio = abs($diferencaTotais / $numeroClientes);
         $numeroMinimoClientes = abs($diferencaTotais / $valorMedio);
+        $receitaMedia = $valorMedio * $numeroMinimoClientes;
+        $margemContribuicao = ($receitaMedia - $totalVariavel) / $receitaMedia;
+        $pontoEquilibrio = $totalFixo / $margemContribuicao;
+        $valorMinimo = $pontoEquilibrio / $numeroMinimoClientes;
+        $nroMinimoClientesComPrecificacao = ceil($pontoEquilibrio / $valorMedio);
 
         return [
             'valorMedio' => 'R$ '.number_format($valorMedio, 2, ',', '.'),
             'numeroMinimoClientes' => number_format($numeroMinimoClientes, 2, ',', '.'),
             'totalFixo' => 'R$ '.number_format($totalFixo, 2, ',', '.'),
             'totalVariavel' => 'R$ '.number_format($totalVariavel, 2, ',', '.'),
-            'numeroClientes' => number_format($numeroClientes, 2, ',', '.')
+            'numeroClientes' => number_format($numeroClientes, 2, ',', '.'),
+            'receitaMedia' => 'R$ '.number_format($receitaMedia, 2, ',', '.'),
+            'margemContribuicao' => number_format($margemContribuicao, 2, ',', '.'),
+            'pontoEquilibrio' => number_format($pontoEquilibrio, 2, ',', '.'),
+            'valorMinimo' => 'R$ '.number_format($valorMinimo, 2, ',', '.'),
+            'nroMinimoClientesComPrecificacao' => $nroMinimoClientesComPrecificacao
         ];
     }
 }

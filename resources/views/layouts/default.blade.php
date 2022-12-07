@@ -231,11 +231,13 @@
                 <h6 class="center">Precificação</h6>
                 <div id="apresentacaoPrecificacao">
                     <div class="row" id="headerPrecifcacao"></div>
-                    <div class="row" id="totalVariavelPrecificacao"></div>
-                    <div class="row" id="totalFixoPrecificacao"></div>
-                    <div class="row" id="nroMinimoClientesPrecificacao"></div>
                     <div class="row" id="numeroClientesPrecificacao"></div>
                     <div class="row" id="valorMedioPrecificacao"></div>
+                    <div class="row" id="receitaMedia"></div>
+                    <div class="row" id="margemContribuicaoPrecificacao"></div>
+                    <div class="row" id="pontoEquilibrioPrecificacao"></div>
+                    <div class="row" id="valorMinimo"></div>
+                    <div class="row" id="nroMinimoComPrecificacao"></div>
                 </div>
                 <div class="row center">
                     <button class="btn waves-effect waves-light" id="btnPrecificacao" data-action="{{route('precificacao.get')}}">Precificação</button>

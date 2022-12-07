@@ -14,14 +14,19 @@ class AnaliseFinanceiraController extends Controller
         $totalFixo = Pagamento::whereRaw('data_vencimento >= DATE_SUB((SELECT MAX(p2.data_pagamento) FROM pagamentos p2 WHERE tipo_custo = \'F\'), INTERVAL 30 DAY) AND tipo_custo = \'F\'')->sum('valor');
 
         $margemContribuicao = $receitaTotal - $totalVariavel;
-        $pontoEquilibrio = $totalFixo / $margemContribuicao;
+        $percentualMargemContribuicao = $margemContribuicao / $receitaTotal;
+
+        $pontoEquilibrio = $totalFixo / $percentualMargemContribuicao;
 
         return [
             'margemContribuicao' => number_format($margemContribuicao, 2, ',', '.'),
+            'percentualMargemContribuicao' => $percentualMargemContribuicao,
             'pontoEquilibrio' => number_format($pontoEquilibrio, 2, ',', '.'),
             'receitaTotal' => 'R$ '.number_format($receitaTotal, 2, ',', '.'),
             'totalFixo' => 'R$ '.number_format($totalFixo, 2, ',', '.'),
-            'totalVariavel' => 'R$ '.number_format($totalVariavel, 2, ',', '.')
+            'totalFixoBruto' => $totalFixo,
+            'totalVariavel' => 'R$ '.number_format($totalVariavel, 2, ',', '.'),
+                'totalVariavelBruto' => $totalVariavel
         ];
     }
 }
