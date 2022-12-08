@@ -30,7 +30,7 @@
                                     <td>{{$pagamento['pago_a']}}</td>
                                     <td>{{$pagamento['tipo_custo']}}</td>
                                     <td>{{date('d/m/Y', strtotime($pagamento['data_vencimento']))}}</td>
-                                    <td>{{date('d/m/Y', strtotime($pagamento['data_pagamento']))}}</td>
+                                    <td>{{empty(strtotime($pagamento['data_pagamento'])) ? '' : date('d/m/Y', strtotime($pagamento['data_pagamento']))}}</td>
                                     <td>{{$pagamento['modo_pagamento']}}</td>
                                     <td>{{number_format($pagamento['valor'], 2, ',', '.')}}</td>
                                     <td>
@@ -57,7 +57,7 @@
                                 <th>Paciente</th>
                                 <th>Data Vencimento</th>
                                 <th>Data Recebimento</th>
-                                <th>Modo Rec.</th>
+                                <th>Modo Recebimento</th>
                                 <th>Valor</th>
                                 <th>Ações</th>
                             </tr>
@@ -69,7 +69,7 @@
                                     <td>{{$recebimento['id']}}</td>
                                     <td>{{$recebimento['paciente']}}</td>
                                     <td>{{$recebimento['data_vencimento']}}</td>
-                                    <td>{{$recebimento['data_recebimento']}}</td>
+                                    <td>{{empty(strtotime($recebimento['data_recebimento'])) ? '' : date('d/m/Y', strtotime($recebimento['data_recebimento']))}}</td>
                                     <td>{{$recebimento['modo_recebimento']}}</td>
                                     <td>{{$recebimento['valor']}}</td>
                                     <td>

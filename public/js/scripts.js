@@ -98,16 +98,11 @@ $('#btnAnaliseFinanceira').on('click', function (event) {
         console.log(response);
         let corPontoEquilibrio = '';
         let somaTotais = response.totalFixoBruto + response.totalVariavelBruto;
-        let pontoEquilibrioFormatado = parseFloat(response.pontoEquilibrio.replaceAll('.', '').replaceAll(',', '.'))
-        if (pontoEquilibrioFormatado > somaTotais) {
+        if (response.pontoEquilibrioBruto > somaTotais) {
             corPontoEquilibrio = 'red-text'
-        }else if (pontoEquilibrioFormatado < somaTotais) {
+        }else if (response.pontoEquilibrioBruto < somaTotais) {
             corPontoEquilibrio = 'green-text'
-        } else {
-            corPontoEquilibrio = 'blue-text'
         }
-        console.log(somaTotais);
-        console.log(pontoEquilibrioFormatado);
 
         $('#apresentacaoAnaliseFinanceira').show();
         $('#headerAnaliseFinanceira').html('<h5>Resultados:</h5>');

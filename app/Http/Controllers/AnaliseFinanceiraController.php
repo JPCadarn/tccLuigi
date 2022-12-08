@@ -19,14 +19,14 @@ class AnaliseFinanceiraController extends Controller
         $pontoEquilibrio = $totalFixo / $percentualMargemContribuicao;
 
         return [
-            'margemContribuicao' => number_format($margemContribuicao, 2, ',', '.'),
-            'percentualMargemContribuicao' => $percentualMargemContribuicao,
-            'pontoEquilibrio' => number_format($pontoEquilibrio, 2, ',', '.'),
+            'margemContribuicao' => number_format($percentualMargemContribuicao, 2, ',', '.'),
+            'pontoEquilibrio' => 'R$ '.number_format($pontoEquilibrio, 2, ',', '.'),
+            'pontoEquilibrioBruto' => $pontoEquilibrio,
             'receitaTotal' => 'R$ '.number_format($receitaTotal, 2, ',', '.'),
             'totalFixo' => 'R$ '.number_format($totalFixo, 2, ',', '.'),
             'totalFixoBruto' => $totalFixo,
             'totalVariavel' => 'R$ '.number_format($totalVariavel, 2, ',', '.'),
-                'totalVariavelBruto' => $totalVariavel
+            'totalVariavelBruto' => $totalVariavel
         ];
     }
 }
